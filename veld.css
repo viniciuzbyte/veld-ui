@@ -1,0 +1,777 @@
+@charset "UTF-8";
+
+/*!
+ * Veld-UI
+ * A quiet design system for thoughtful interfaces.
+ * https://github.com/viniciuz/veld-ui
+ * This project is released into the public domain under The Unlicense.
+ */
+
+:root {
+  color-scheme: light;
+  --veld-paper: #F1EBDF;
+  --veld-paper-raised: #E6DECE;
+  --veld-ink: #17251F;
+  --veld-ink-soft: #3A4A42;
+  --veld-sage: #5C6E62;
+  --veld-terracotta: #A8442A;
+  --veld-mineral: #C09A2E;
+  --veld-on-ink: #F1EBDF;
+  --veld-on-ink-muted: #A7B8AC;
+  --veld-rule: rgba(23, 37, 31, .16);
+  --veld-rule-strong: rgba(23, 37, 31, .42);
+
+  --veld-font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, "Times New Roman", serif;
+  --veld-font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+
+  --veld-text-xs: .7rem;
+  --veld-text-sm: .8125rem;
+  --veld-text-base: 1.0625rem;
+  --veld-text-lg: clamp(1.2rem, 1rem + .8vw, 1.5rem);
+  --veld-text-xl: clamp(1.55rem, 1.1rem + 1.9vw, 2.4rem);
+  --veld-text-display: clamp(2.5rem, 1.6rem + 4.6vw, 5.5rem);
+
+  --veld-edge: clamp(1.25rem, 4vw, 4rem);
+  --veld-space-1: .5rem;
+  --veld-space-2: .875rem;
+  --veld-space-3: 1.5rem;
+  --veld-space-4: 2.5rem;
+  --veld-space-5: 4rem;
+  --veld-space-6: 6rem;
+
+  --veld-content-width: 1320px;
+  --veld-ease: cubic-bezier(.2, .7, .3, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--veld-paper);
+  color: var(--veld-ink);
+  font-family: var(--veld-font-display);
+  font-size: var(--veld-text-base);
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--veld-terracotta);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+::selection {
+  background: var(--veld-ink);
+  color: var(--veld-on-ink);
+}
+
+.veld-shell {
+  width: min(100% - (2 * var(--veld-edge)), var(--veld-content-width));
+  margin-inline: auto;
+}
+
+.veld-label {
+  color: var(--veld-sage);
+  font-family: var(--veld-font-mono);
+  font-size: var(--veld-text-xs);
+  letter-spacing: .16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.veld-skip-link {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: -9999px;
+  padding: .7rem 1.2rem;
+  background: var(--veld-ink);
+  color: var(--veld-on-ink);
+  font-family: var(--veld-font-mono);
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.veld-skip-link:focus {
+  top: 1rem;
+  left: 1rem;
+}
+
+.veld-header {
+  position: sticky;
+  z-index: 20;
+  top: 0;
+  border-top: 2px solid var(--veld-terracotta);
+  border-bottom: 1px solid var(--veld-rule);
+  background: var(--veld-paper);
+}
+
+.veld-header-inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--veld-space-3);
+  padding-block: .9rem;
+}
+
+.veld-wordmark {
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.veld-wordmark-name {
+  font-size: 1.3rem;
+  letter-spacing: .005em;
+}
+
+.veld-wordmark-meta {
+  margin-top: .4rem;
+  color: var(--veld-sage);
+  font-family: var(--veld-font-mono);
+  font-size: .66rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.veld-nav {
+  display: flex;
+  gap: clamp(.9rem, 2.4vw, 2.4rem);
+}
+
+.veld-nav a {
+  padding-block: .4rem;
+  background-image: linear-gradient(var(--veld-terracotta), var(--veld-terracotta));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  color: var(--veld-ink-soft);
+  font-family: var(--veld-font-mono);
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-size .35s var(--veld-ease), color .2s ease;
+}
+
+.veld-nav a:hover,
+.veld-nav a:focus-visible {
+  background-size: 100% 1px;
+  color: var(--veld-ink);
+}
+
+.veld-header-meta {
+  color: var(--veld-sage);
+  font-family: var(--veld-font-mono);
+  font-size: .68rem;
+  letter-spacing: .12em;
+  text-align: right;
+}
+
+.veld-hero {
+  padding-block: clamp(2.75rem, 7vw, 6.5rem) clamp(3rem, 6vw, 5.5rem);
+}
+
+.veld-hero-grid {
+  display: grid;
+  width: min(100% - (2 * var(--veld-edge)), var(--veld-content-width));
+  margin-inline: auto;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, .8fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.veld-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  color: var(--veld-sage);
+  font-family: var(--veld-font-mono);
+  font-size: .68rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.veld-eyebrow::after {
+  flex: 1;
+  max-width: 7rem;
+  height: 1px;
+  background: var(--veld-rule-strong);
+  content: "";
+}
+
+.veld-display {
+  font-size: var(--veld-text-display);
+  font-weight: 400;
+  line-height: .97;
+  letter-spacing: -.022em;
+  text-wrap: balance;
+}
+
+.veld-display em {
+  color: var(--veld-terracotta);
+  font-style: italic;
+}
+
+.veld-lede {
+  max-width: 40ch;
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  color: var(--veld-ink-soft);
+  line-height: 1.65;
+}
+
+.veld-actions {
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.veld-link-arrow {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .6rem;
+  padding-bottom: .35rem;
+  border-bottom: 1px solid var(--veld-rule-strong);
+  color: var(--veld-ink);
+  font-family: var(--veld-font-mono);
+  font-size: .74rem;
+  letter-spacing: .14em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color .2s ease, border-color .25s ease, gap .25s var(--veld-ease);
+}
+
+.veld-link-arrow::after {
+  content: "↓";
+  font-size: .9rem;
+  line-height: 1;
+  transform: translateY(-.05em);
+}
+
+.veld-link-arrow:hover,
+.veld-link-arrow:focus-visible {
+  gap: 1rem;
+  border-color: var(--veld-terracotta);
+  color: var(--veld-terracotta);
+}
+
+.veld-plate {
+  position: relative;
+  padding: clamp(1.1rem, 2.2vw, 1.75rem);
+  border: 1px solid var(--veld-rule-strong);
+  background: var(--veld-paper-raised);
+}
+
+.veld-plate::before,
+.veld-plate::after {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--veld-terracotta);
+  content: "";
+}
+
+.veld-plate::before {
+  top: -1px;
+  left: -1px;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.veld-plate::after {
+  right: -1px;
+  bottom: -1px;
+  border-top: 0;
+  border-left: 0;
+}
+
+.veld-contours {
+  width: 100%;
+  height: auto;
+  color: var(--veld-rule-strong);
+}
+
+.veld-plate-data {
+  display: grid;
+  gap: .55rem;
+  margin-top: 1.25rem;
+  font-family: var(--veld-font-mono);
+  font-size: .7rem;
+  letter-spacing: .06em;
+}
+
+.veld-plate-data > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: .55rem;
+  border-top: 1px solid var(--veld-rule);
+}
+
+.veld-plate-data dt {
+  color: var(--veld-sage);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.veld-plate-data dd {
+  margin: 0;
+  color: var(--veld-ink);
+  text-align: right;
+}
+
+.veld-section {
+  padding-block: clamp(2.5rem, 5vw, 4.5rem);
+  border-top: 1px solid var(--veld-rule-strong);
+}
+
+.veld-intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.veld-intro-lead {
+  max-width: 26ch;
+  font-size: var(--veld-text-xl);
+  line-height: 1.26;
+  letter-spacing: -.012em;
+  text-wrap: pretty;
+}
+
+.veld-intro-side {
+  padding-left: clamp(1rem, 2vw, 1.75rem);
+  border-left: 1px solid var(--veld-rule);
+}
+
+.veld-intro-side .veld-label {
+  margin-bottom: .75rem;
+}
+
+.veld-intro-side p + p {
+  margin-top: .9rem;
+}
+
+.veld-intro-side p:not(.veld-label) {
+  color: var(--veld-ink-soft);
+  font-size: .975rem;
+  line-height: 1.7;
+}
+
+.veld-section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: clamp(1.25rem, 3vw, 2.25rem);
+}
+
+.veld-section-head h2 {
+  font-size: var(--veld-text-lg);
+  font-weight: 400;
+  letter-spacing: -.01em;
+}
+
+.veld-list {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--veld-rule-strong);
+  list-style: none;
+}
+
+.veld-work {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr) 8rem 3.5rem;
+  grid-template-areas:
+    "index title kind year"
+    "index desc kind year";
+  align-items: start;
+  column-gap: clamp(1rem, 2vw, 2rem);
+  row-gap: .35rem;
+  padding-block: clamp(1.05rem, 2vw, 1.7rem);
+  border-bottom: 1px solid var(--veld-rule);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color .3s ease;
+}
+
+.veld-work:hover,
+.veld-work:focus-visible {
+  border-bottom-color: var(--veld-terracotta);
+}
+
+.veld-work-index {
+  grid-area: index;
+  padding-top: .5rem;
+  color: var(--veld-sage);
+  font-family: var(--veld-font-mono);
+  font-size: .74rem;
+  letter-spacing: .08em;
+  transition: color .25s ease;
+}
+
+.veld-work:hover .veld-work-index,
+.veld-work:focus-visible .veld-work-index {
+  color: var(--veld-terracotta);
+}
+
+.veld-work-title {
+  grid-area: title;
+  justify-self: start;
+  padding-bottom: .18rem;
+  background-image: linear-gradient(var(--veld-terracotta), var(--veld-terracotta));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  font-size: var(--veld-text-lg);
+  line-height: 1.15;
+  letter-spacing: -.01em;
+  transition: background-size .4s var(--veld-ease);
+}
+
+.veld-work:hover .veld-work-title,
+.veld-work:focus-visible .veld-work-title {
+  background-size: 100% 1px;
+}
+
+.veld-work-desc {
+  grid-area: desc;
+  max-width: 48ch;
+  color: var(--veld-ink-soft);
+  font-size: .95rem;
+  line-height: 1.55;
+}
+
+.veld-work-kind {
+  grid-area: kind;
+  padding-top: .55rem;
+  color: var(--veld-sage);
+  font-family: var(--veld-font-mono);
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.veld-work-year {
+  grid-area: year;
+  justify-self: end;
+  padding-top: .55rem;
+  color: var(--veld-ink-soft);
+  font-family: var(--veld-font-mono);
+  font-size: .74rem;
+}
+
+.veld-quote {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(3rem, 7vw, 6rem);
+  border-top: 1px solid var(--veld-ink);
+  background: var(--veld-ink);
+  color: var(--veld-on-ink);
+}
+
+.veld-quote-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.veld-quote-text {
+  max-width: 30ch;
+  font-size: var(--veld-text-xl);
+  line-height: 1.28;
+  letter-spacing: -.012em;
+  text-wrap: balance;
+}
+
+.veld-quote-cite {
+  max-width: 14rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(241, 235, 223, .22);
+  color: var(--veld-on-ink-muted);
+  font-family: var(--veld-font-mono);
+  font-size: .7rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.veld-quote-contours {
+  position: absolute;
+  top: 50%;
+  right: -5rem;
+  width: clamp(18rem, 34vw, 30rem);
+  height: auto;
+  color: var(--veld-on-ink);
+  opacity: .16;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.veld-footer {
+  padding-block: clamp(2.5rem, 5vw, 4rem) 1.75rem;
+  border-top: 1px solid var(--veld-rule-strong);
+}
+
+.veld-footer-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  align-items: start;
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+}
+
+.veld-footer-brand .veld-wordmark-name {
+  font-size: 1.15rem;
+}
+
+.veld-footer-address {
+  max-width: 24ch;
+  margin-top: .9rem;
+  color: var(--veld-ink-soft);
+  font-size: .95rem;
+  line-height: 1.6;
+}
+
+.veld-footer-block .veld-label {
+  margin-bottom: .85rem;
+}
+
+.veld-footer-mail {
+  display: inline-block;
+  padding-bottom: .15rem;
+  border-bottom: 1px solid var(--veld-terracotta);
+  color: var(--veld-ink);
+  font-size: var(--veld-text-lg);
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+.veld-footer-mail:hover,
+.veld-footer-mail:focus-visible {
+  color: var(--veld-terracotta);
+}
+
+.veld-footer-note {
+  max-width: 26ch;
+  margin-top: .9rem;
+  color: var(--veld-ink-soft);
+  font-size: .9rem;
+  line-height: 1.6;
+}
+
+.veld-colophon {
+  color: var(--veld-ink-soft);
+  font-size: .9rem;
+  line-height: 1.7;
+}
+
+.veld-footer-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .6rem 1.5rem;
+  margin-top: clamp(2.25rem, 4vw, 3.25rem);
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--veld-rule);
+  color: var(--veld-sage);
+  font-family: var(--veld-font-mono);
+  font-size: .68rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.veld-button {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  gap: .65rem;
+  padding: .75rem 1rem;
+  border: 1px solid var(--veld-ink);
+  background: var(--veld-ink);
+  color: var(--veld-on-ink);
+  cursor: pointer;
+  font-family: var(--veld-font-mono);
+  font-size: .72rem;
+  letter-spacing: .1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.veld-button:hover {
+  border-color: var(--veld-terracotta);
+  background: var(--veld-terracotta);
+}
+
+.veld-button--outline {
+  background: transparent;
+  color: var(--veld-ink);
+}
+
+.veld-button--outline:hover {
+  color: var(--veld-on-ink);
+}
+
+.veld-rule {
+  height: 1px;
+  border: 0;
+  background: var(--veld-rule);
+}
+
+@media (max-width: 980px) {
+  .veld-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .veld-plate {
+    max-width: 32rem;
+  }
+
+  .veld-intro-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .veld-intro-side {
+    padding-top: 1.25rem;
+    padding-left: 0;
+    border-top: 1px solid var(--veld-rule);
+    border-left: 0;
+  }
+
+  .veld-footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .veld-quote-contours {
+    right: -9rem;
+    opacity: .1;
+  }
+}
+
+@media (max-width: 720px) {
+  .veld-header-inner {
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+  }
+
+  .veld-header-meta {
+    display: none;
+  }
+
+  .veld-nav {
+    gap: .9rem;
+  }
+
+  .veld-nav a {
+    font-size: .66rem;
+    letter-spacing: .1em;
+  }
+
+  .veld-work {
+    grid-template-columns: 2.25rem minmax(0, 1fr) auto;
+    grid-template-areas:
+      "index title year"
+      "index desc desc"
+      "index kind kind";
+    row-gap: .5rem;
+  }
+
+  .veld-work-index,
+  .veld-work-year {
+    padding-top: .3rem;
+  }
+
+  .veld-work-kind {
+    justify-self: start;
+    padding-top: 0;
+  }
+
+  .veld-section-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: .5rem;
+  }
+
+  .veld-footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .veld-quote-cite {
+    max-width: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .veld-wordmark-meta {
+    font-size: .6rem;
+    letter-spacing: .12em;
+  }
+
+  .veld-display {
+    letter-spacing: -.015em;
+  }
+
+  .veld-nav {
+    gap: .65rem;
+  }
+
+  .veld-nav a {
+    font-size: .6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    transition-delay: 0ms !important;
+  }
+}

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F1EBDF">
+  <meta name="description" content="Veld-UI — an editorial CSS design system with natural colors, considered typography, and responsive layouts.">
+  <title>Veld-UI — Editorial CSS Design System</title>
+  <link rel="stylesheet" href="../veld.css">
+  <style>
+    .preview-note { padding-block: 1rem; border-bottom: 1px solid var(--veld-rule); }
+    .preview-note-inner { display:flex; flex-wrap:wrap; justify-content:space-between; gap:.75rem 1rem; }
+    .preview-swatches { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.75rem; margin-top:1.25rem; }
+    .preview-swatch { min-height:7rem; display:flex; flex-direction:column; justify-content:flex-end; gap:.3rem; padding:.85rem; border:1px solid var(--veld-rule); font-family:var(--veld-font-mono); font-size:.72rem; }
+    .preview-swatch strong { font-weight:500; }
+    .preview-components { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+    .preview-panel { padding:clamp(1.1rem,3vw,2rem); border:1px solid var(--veld-rule-strong); }
+    .preview-panel h3 { margin-bottom:.75rem; font-size:var(--veld-text-lg); font-weight:400; }
+    .preview-panel p { color:var(--veld-ink-soft); }
+    .preview-actions { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1.25rem; }
+    .preview-type { display:grid; gap:.7rem; }
+    .preview-type > div { padding-bottom:.7rem; border-bottom:1px solid var(--veld-rule); }
+    @media(max-width:720px) { .preview-swatches { grid-template-columns:repeat(2,minmax(0,1fr)); } .preview-components { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <a class="veld-skip-link" href="#konten">Lompat ke konten</a>
+  <header class="veld-header">
+    <div class="veld-shell veld-header-inner">
+      <a class="veld-wordmark" href="#atas">
+        <span class="veld-wordmark-name">Veld-UI</span>
+        <span class="veld-wordmark-meta">Editorial CSS system</span>
+      </a>
+      <nav class="veld-nav" aria-label="Navigasi utama">
+        <a href="#prinsip">Prinsip</a>
+        <a href="#komponen">Komponen</a>
+        <a href="#mulai">Mulai</a>
+      </nav>
+      <p class="veld-header-meta">DESIGN SYSTEM · 001</p>
+    </div>
+  </header>
+
+  <main id="konten">
+    <section class="veld-hero" id="atas">
+      <div class="veld-hero-grid">
+        <div>
+          <p class="veld-eyebrow">A quiet design system</p>
+          <h1 class="veld-display">Interfaces with<br>room to <em>breathe.</em></h1>
+          <p class="veld-lede">Veld-UI is a small, framework-free CSS design system shaped by editorial typography, natural colors, careful spacing, and the quiet character of printed matter.</p>
+          <p class="veld-actions"><a class="veld-link-arrow" href="#mulai">Explore the system</a></p>
+        </div>
+        <aside class="veld-plate" aria-label="Veld-UI design coordinates">
+          <svg class="veld-contours" viewBox="0 0 300 300" role="img" aria-label="Topographic contour illustration">
+            <g fill="none" stroke="currentColor" stroke-width="1" stroke-linejoin="round">
+              <path d="M150 34c54-2 100 38 104 94 4 58-42 112-98 124-56 12-108-28-114-86C36 106 96 36 150 34Z"/>
+              <path transform="translate(150 150) scale(.84) translate(-150 -150)" d="M150 34c54-2 100 38 104 94 4 58-42 112-98 124-56 12-108-28-114-86C36 106 96 36 150 34Z"/>
+              <path transform="translate(150 150) scale(.68) translate(-150 -150)" d="M150 34c54-2 100 38 104 94 4 58-42 112-98 124-56 12-108-28-114-86C36 106 96 36 150 34Z"/>
+              <path transform="translate(150 150) scale(.52) translate(-150 -150)" d="M150 34c54-2 100 38 104 94 4 58-42 112-98 124-56 12-108-28-114-86C36 106 96 36 150 34Z"/>
+              <path transform="translate(150 150) scale(.36) translate(-150 -150)" d="M150 34c54-2 100 38 104 94 4 58-42 112-98 124-56 12-108-28-114-86C36 106 96 36 150 34Z"/>
+            </g>
+            <g stroke="currentColor" stroke-width="1" opacity=".65">
+              <line x1="150" y1="18" x2="150" y2="34"/><line x1="150" y1="266" x2="150" y2="282"/>
+              <line x1="28" y1="150" x2="44" y2="150"/><line x1="256" y1="150" x2="272" y2="150"/>
+            </g>
+            <circle cx="150" cy="150" r="2.5" fill="currentColor"/>
+          </svg>
+          <dl class="veld-plate-data">
+            <div><dt>Package</dt><dd>veld-ui</dd></div>
+            <div><dt>Runtime</dt><dd>CSS only</dd></div>
+            <div><dt>Dependencies</dt><dd>None</dd></div>
+            <div><dt>License</dt><dd>Unlicense</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="veld-section" id="prinsip">
+      <div class="veld-shell veld-intro-grid">
+        <h2 class="veld-intro-lead">Less noise, more intention. A visual language built to give content its own space and interfaces a sense of permanence.</h2>
+        <div class="veld-intro-side">
+          <p class="veld-label">Design principles</p>
+          <p>Editorial hierarchy, generous whitespace, thin rules, and measured details create structure without visual clutter.</p>
+          <p>The system uses CSS custom properties and namespaced classes, so its foundations can be adapted to existing projects.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="veld-section">
+      <div class="veld-shell">
+        <div class="veld-section-head">
+          <h2>Color field</h2>
+          <p class="veld-label">01 — Core palette</p>
+        </div>
+        <div class="preview-swatches">
+          <div class="preview-swatch" style="background:#F1EBDF;color:#17251F"><strong>Paper</strong><span>#F1EBDF</span></div>
+          <div class="preview-swatch" style="background:#17251F;color:#F1EBDF"><strong>Forest ink</strong><span>#17251F</span></div>
+          <div class="preview-swatch" style="background:#A8442A;color:#F1EBDF"><strong>Terracotta</strong><span>#A8442A</span></div>
+          <div class="preview-swatch" style="background:#C09A2E;color:#17251F"><strong>Mineral</strong><span>#C09A2E</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="veld-section" id="komponen">
+      <div class="veld-shell">
+        <div class="veld-section-head">
+          <h2>Selected components</h2>
+          <p class="veld-label">02 — Type and interaction</p>
+        </div>
+        <div class="preview-components">
+          <article class="preview-panel">
+            <p class="veld-label">Typography</p>
+            <div class="preview-type">
+              <div><h3 style="font-size:var(--veld-text-xl)">An editorial voice</h3><p>Display serif / fluid scale</p></div>
+              <div><p class="veld-label">FIELD NOTE · 07 / 2026</p><p>Monospace labels create a precise counterpoint to expressive serif typography.</p></div>
+            </div>
+          </article>
+          <article class="preview-panel">
+            <p class="veld-label">Actions</p>
+            <h3>Quietly distinct.</h3>
+            <p>Buttons and links use restrained borders, clear focus states, and subtle transitions.</p>
+            <div class="preview-actions">
+              <a class="veld-button" href="#mulai">Get started</a>
+              <a class="veld-button veld-button--outline" href="https://github.com/USERNAME/veld-ui">GitHub</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="veld-quote">
+      <div class="veld-shell veld-quote-grid">
+        <blockquote class="veld-quote-text"><p>Good design does not ask for attention. It earns trust through every detail.</p></blockquote>
+        <p class="veld-quote-cite">A note on restraint · Veld-UI</p>
+      </div>
+      <svg class="veld-quote-contours" viewBox="0 0 300 300" aria-hidden="true" focusable="false">
+        <g fill="none" stroke="currentColor" stroke-width="1" stroke-linejoin="round">
+          <path d="M150 34c54-2 100 38 104 94 4 58-42 112-98 124-56 12-108-28-114-86C36 106 96 36 150 34Z"/>
+          <path transform="translate(150 150) scale(.76) translate(-150 -150)" d="M150 34c54-2 100 38 104 94 4 58-42 112-98 124-56 12-108-28-114-86C36 106 96 36 150 34Z"/>
+          <path transform="translate(150 150) scale(.54) translate(-150 -150)" d="M150 34c54-2 100 38 104 94 4 58-42 112-98 124-56 12-108-28-114-86C36 106 96 36 150 34Z"/>
+        </g>
+      </svg>
+    </section>
+
+    <section class="veld-section" id="mulai">
+      <div class="veld-shell">
+        <div class="veld-section-head">
+          <h2>Start with one stylesheet</h2>
+          <p class="veld-label">03 — No build step</p>
+        </div>
+        <p style="max-width:62ch;color:var(--veld-ink-soft)">Copy <code>veld.css</code> into your project and add the stylesheet to your document. Use the provided Veld classes, or build your own components from the CSS custom properties.</p>
+        <pre style="overflow:auto;margin-top:1.25rem;padding:1.25rem;border:1px solid var(--veld-rule-strong);background:var(--veld-paper-raised);font-family:var(--veld-font-mono);font-size:.8rem;line-height:1.7"><code>&lt;link rel="stylesheet" href="./veld.css"&gt;
+
+&lt;div class="veld-shell"&gt;
+  &lt;p class="veld-label"&gt;Field note&lt;/p&gt;
+  &lt;h1 class="veld-display"&gt;A quieter web.&lt;/h1&gt;
+  &lt;a class="veld-link-arrow" href="#work"&gt;Explore work&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="veld-footer">
+    <div class="veld-shell">
+      <div class="veld-footer-grid">
+        <div class="veld-footer-brand">
+          <p class="veld-wordmark-name">Veld-UI</p>
+          <p class="veld-footer-address">A quiet design system for thoughtful interfaces.</p>
+        </div>
+        <div class="veld-footer-block">
+          <p class="veld-label">Project</p>
+          <a class="veld-footer-mail" href="https://github.com/USERNAME/veld-ui">View on GitHub</a>
+          <p class="veld-footer-note">Framework-free CSS, responsive foundations, and an editorial visual language.</p>
+        </div>
+        <div class="veld-footer-block">
+          <p class="veld-label">Colophon</p>
+          <p class="veld-colophon">System fonts. No trackers. No external assets. Released under The Unlicense.</p>
+        </div>
+      </div>
+      <div class="veld-footer-bar"><span>© 2026 Veld-UI</span><span>CSS only · No dependencies</span><span>Made for the open web</span></div>
+    </div>
+  </footer>
+</body>
+</html>
